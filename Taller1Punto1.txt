@@ -1,0 +1,34 @@
+iniciar-programa
+	define-nueva-instruccion gira-derecha como inicio
+    	repetir 3 veces inicio
+        	gira-izquierda
+        fin;
+    fin;
+    define-nueva-instruccion saltar-muro como inicio
+    	si frente-bloqueado entonces inicio
+        	
+           	gira-derecha;
+           	avanza;
+            gira-izquierda;
+           	avanza;
+            gira-izquierda;
+            avanza;
+            gira-derecha;
+        fin;
+    fin;
+    inicia-ejecucion
+        { TODO poner codigo aqui }
+        mientras frente-libre o izquierda-libre o derecha-libre hacer inicio
+        	si frente-libre entonces inicio
+        		avanza;
+			fin
+        	sino inicio
+        		saltar-muro;
+        	fin;
+            si junto-a-zumbador entonces inicio
+            	coge-zumbador;
+                apagate;
+            fin;
+        fin;
+    termina-ejecucion
+finalizar-programa

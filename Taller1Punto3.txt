@@ -1,0 +1,95 @@
+iniciar-programa
+
+	define-nueva-instruccion gira-derecha como inicio
+		repetir 3 veces inicio
+			gira-izquierda;
+		fin;
+	fin;
+
+	define-nueva-instruccion vuelta como inicio
+		repetir 2 veces inicio
+			gira-izquierda;
+		fin;
+	fin;
+
+	define-nueva-instruccion orienta-al-sur como inicio
+		si orientado-al-norte entonces inicio
+			vuelta;
+		fin;
+		si orientado-al-este entonces inicio
+			gira-derecha;
+		fin;
+		si orientado-al-oeste entonces inicio
+			gira-izquierda;
+		fin;
+	fin;
+
+	define-nueva-instruccion pacman como inicio
+		mientras junto-a-zumbador hacer inicio
+			coge-zumbador;
+		fin;
+	fin;
+
+	define-nueva-instruccion ve-a-esquina-inferior-izquierda como inicio
+		orienta-al-sur;
+		mientras frente-libre hacer inicio
+			avanza;
+		fin;
+		gira-derecha;
+		mientras frente-libre hacer inicio
+			avanza;
+		fin;
+		gira-derecha;
+	fin;
+
+	define-nueva-instruccion recorre-columna como inicio
+		pacman;
+		mientras frente-libre hacer inicio
+			avanza;
+			pacman;
+		fin;
+	fin;
+
+	define-nueva-instruccion barre como inicio
+		recorre-columna;
+		si orientado-al-norte entonces inicio
+			si derecha-libre entonces inicio
+				gira-derecha;
+				avanza;
+				pacman;
+				gira-derecha;
+				barre;
+			fin;
+		fin
+		sino inicio
+			si izquierda-libre entonces inicio
+				gira-izquierda;
+				avanza;
+				pacman;
+				gira-izquierda;
+				barre;
+			fin
+			sino inicio
+				vuelta;
+				mientras frente-libre hacer inicio
+					avanza;
+				fin;
+			fin;
+		fin;
+	fin;
+
+	define-nueva-instruccion deposita-todo como inicio
+		mientras algún-zumbador-en-la-mochila hacer inicio
+			deja-zumbador;
+		fin;
+	fin;
+
+inicia-ejecucion
+
+	ve-a-esquina-inferior-izquierda;
+	barre;
+	deposita-todo;
+	apagate;
+
+termina-ejecucion
+finalizar-programa

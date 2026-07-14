@@ -1,0 +1,87 @@
+iniciar-programa
+
+    define-nueva-instruccion gira-derecha como
+    inicio
+        repetir 3 veces
+        inicio
+            gira-izquierda;
+        fin
+    fin;
+
+    define-nueva-instruccion media-vuelta como
+    inicio
+        repetir 2 veces
+        inicio
+            gira-izquierda;
+        fin
+    fin;
+    define-nueva-instruccion revisar-y-colocar como
+    inicio
+        media-vuelta;
+        si frente-bloqueado entonces
+        inicio
+            media-vuelta;
+        fin
+        sino
+        inicio
+            avanza;
+            gira-izquierda;
+            avanza;
+            si junto-a-zumbador entonces
+            inicio
+                media-vuelta;
+                avanza;
+                gira-derecha;
+                avanza;
+                deja-zumbador;
+            fin
+            sino
+            inicio
+                media-vuelta;
+                avanza;
+                gira-derecha;
+                avanza;
+            fin
+        fin
+    fin;
+
+    define-nueva-instruccion barrer-fila como
+    inicio
+        revisar-y-colocar;
+        si frente-libre entonces
+        inicio
+            avanza;
+            barrer-fila;
+        fin
+    fin;
+
+    define-nueva-instruccion construir-escalera como
+    inicio
+        deja-zumbador;
+        mientras frente-libre hacer
+        inicio
+            avanza;
+            deja-zumbador;
+        fin;
+
+        gira-izquierda;
+        mientras frente-libre hacer
+        inicio
+            avanza;
+            gira-izquierda;
+            mientras frente-libre hacer
+            inicio
+                avanza;
+            fin;
+            media-vuelta;
+            barrer-fila;
+            gira-izquierda;
+        fin
+    fin;
+
+    inicia-ejecucion
+        construir-escalera;
+        apagate;
+    termina-ejecucion
+
+finalizar-programa
