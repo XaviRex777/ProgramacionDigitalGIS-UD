@@ -1,0 +1,80 @@
+iniciar-programa
+
+	define-nueva-instruccion gira-derecha como inicio
+		repetir 3 veces inicio
+			gira-izquierda;
+		fin;
+	fin;
+
+	define-nueva-instruccion vuelta como inicio
+		repetir 2 veces inicio
+			gira-izquierda;
+		fin;
+	fin;
+
+	define-nueva-instruccion busca-pared como inicio
+		repetir 5 veces inicio
+			si frente-libre entonces inicio
+				avanza;
+			fin;
+		fin;
+	fin;
+
+	define-nueva-instruccion orienta-inicio como inicio
+		si izquierda-bloqueada entonces inicio
+			vuelta;
+		fin
+		sino inicio
+			si frente-bloqueado entonces inicio
+				gira-izquierda;
+			fin
+			sino inicio
+				si frente-libre y derecha-libre entonces inicio
+					busca-pared;
+					si frente-bloqueado entonces inicio
+						gira-izquierda;
+					fin
+					sino inicio
+						apagate;
+					fin;
+				fin;
+			fin;
+		fin;
+	fin;
+
+	define-nueva-instruccion puertica como inicio
+		si derecha-libre entonces inicio
+			gira-derecha;
+			avanza;
+			si frente-libre y derecha-libre y izquierda-libre entonces inicio
+				avanza;
+			fin
+			sino inicio
+				puertica;
+			fin;
+		fin
+		sino inicio
+			si frente-libre entonces inicio
+				avanza;
+			fin
+			sino inicio
+				si izquierda-libre entonces inicio
+					gira-izquierda;
+				fin
+				sino inicio
+					vuelta;
+				fin;
+			fin;
+			puertica;
+		fin;
+	fin;
+
+inicia-ejecucion
+
+	gira-derecha;
+	orienta-inicio;
+	puertica;
+	apagate;
+
+termina-ejecucion
+finalizar-programa
