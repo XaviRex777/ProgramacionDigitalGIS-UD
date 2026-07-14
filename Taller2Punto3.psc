@@ -11,9 +11,9 @@ Funcion resultado <- esPrimo(x)
             FinSi
         FinPara
         Si conteoDivisores = 2 Entonces
-            resultado <- Verdadero
+            resultado = Verdadero
         Sino
-            resultado <- Falso
+            resultado = Falso
         FinSi
     FinSi
 FinFuncion
@@ -21,7 +21,7 @@ FinFuncion
 Algoritmo Taller2Punto3
     Definir numeroIngresado Como Entero
     
-    Escribir "Sr(a) usuario(a), ingrese un número entero:"
+    Escribir "Sr(a) usuario(a), ingrese un número entero el cual desee saber si es primo o no:"
     Leer numeroIngresado
     Si esPrimo(numeroIngresado) Entonces
         Escribir "El número ", numeroIngresado, " es primo."
