@@ -10,7 +10,7 @@ Algoritmo Taller2Punto2
 	Leer cifra
 	Mientras cifra > anterior Hacer
 		Si cifra MOD 2 <> 0 Entonces
-			impares <- impares + 1
+			impares = impares + 1
 		FinSi
 		anterior = cifra
 		Escribir "Ingrese otro número:"
